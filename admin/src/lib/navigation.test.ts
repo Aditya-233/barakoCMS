@@ -48,6 +48,11 @@ describe('nav visibility', () => {
     });
 
     it('treats a signed-out or role-less user as having no roles', () => {
-        expect(count(undefined)).toBeLessThan(count(['SuperAdmin']));
+        // Asserted exactly rather than as "fewer than SuperAdmin". The loose form passes on any
+        // filter that removes something, including one that removes the wrong things, and it does
+        // not say what a role-less caller should still be offered. Overview and Health are the two
+        // destinations with no roles declared, so they are the whole expected set.
+        expect(titles(undefined)).toEqual(['Overview', 'Health']);
+        expect(titles([])).toEqual(['Overview', 'Health']);
     });
 });
