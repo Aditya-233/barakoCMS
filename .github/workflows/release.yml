@@ -220,6 +220,7 @@ jobs:
           build-args: |
             NEXT_BASE_PATH=/barakocms
             NEXT_PUBLIC_API_URL=https://playground.baryo.dev/barakocms-api
+            BARAKO_VERSION=${{ env.VERSION }}
           tags: |
             ghcr.io/baryodev/barako-admin:playground
             ghcr.io/baryodev/barako-admin:playground-${{ env.VERSION }}
