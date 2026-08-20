@@ -19,10 +19,12 @@ export function useApiMeta() {
   return useQuery({
     queryKey: ['meta'],
     queryFn: async () => (await api.get<ApiMeta>('/api/meta')).data,
-    // The version of a running instance does not change under you; refetching it on every window
-    // focus is noise. It changes when the instance is redeployed, which reloads the admin anyway.
-    staleTime: Infinity,
-    refetchOnWindowFocus: false,
+    // The API and the admin are separate images and redeploy independently, so an open tab can
+    // outlive the version it first read. Cached for five minutes and refreshed when the tab is
+    // focused again: enough to keep this off the hot path, short enough that "what am I running"
+    // stops being wrong shortly after an API deploy rather than until someone reloads.
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: true,
     // A failed /api/meta must not surface as an error anywhere. Everything downstream treats an
     // absent version as "unknown" and hides itself.
     retry: false,
