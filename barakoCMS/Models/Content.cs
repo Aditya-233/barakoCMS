@@ -37,30 +37,55 @@ public class Content
     // Derived public search text used for full-text search.
     public string? SearchText { get; set; }
 
-    public void Apply(barakoCMS.Events.ContentCreated @event)
+    /// <summary>
+    /// Applies an event to this document.
+    /// </summary>
+    /// <remarks>
+    /// These are the projection. <paramref name="occurredAt"/> is passed in rather than read from
+    /// the clock because a rebuild replays events long after they happened: reading UtcNow here
+    /// would stamp every document with the time of the rebuild instead of the time of the change,
+    /// and nothing about the result would look wrong.
+    /// </remarks>
+    public void Apply(barakoCMS.Events.ContentCreated @event, DateTime occurredAt)
     {
         Id = @event.Id;
         ContentType = @event.ContentType;
         Data = @event.Data;
         Status = @event.Status;
-        CreatedAt = DateTime.UtcNow;
-        UpdatedAt = DateTime.UtcNow;
+        Sensitivity = @event.Sensitivity;
+        CreatedAt = occurredAt;
+        UpdatedAt = occurredAt;
         LastModifiedBy = @event.CreatedBy;
         SearchText = @event.SearchText;
     }
 
-    public void Apply(barakoCMS.Events.ContentUpdated @event)
+    public void Apply(barakoCMS.Events.ContentUpdated @event, DateTime occurredAt)
     {
         Data = @event.Data;
-        UpdatedAt = DateTime.UtcNow;
+        UpdatedAt = occurredAt;
         LastModifiedBy = @event.UpdatedBy;
         SearchText = @event.SearchText;
     }
 
-    public void Apply(barakoCMS.Events.ContentStatusChanged @event)
+    public void Apply(barakoCMS.Events.ContentStatusChanged @event, DateTime occurredAt)
     {
         Status = @event.NewStatus;
-        UpdatedAt = DateTime.UtcNow;
+        UpdatedAt = occurredAt;
+        LastModifiedBy = @event.UpdatedBy;
+    }
+
+    public void Apply(barakoCMS.Events.ContentScheduled @event, DateTime occurredAt)
+    {
+        ScheduledPublishAt = @event.ScheduledPublishAt;
+        ScheduledUnpublishAt = @event.ScheduledUnpublishAt;
+        UpdatedAt = occurredAt;
+        LastModifiedBy = @event.UpdatedBy;
+    }
+
+    public void Apply(barakoCMS.Events.ContentSensitivityChanged @event, DateTime occurredAt)
+    {
+        Sensitivity = @event.Sensitivity;
+        UpdatedAt = occurredAt;
         LastModifiedBy = @event.UpdatedBy;
     }
 

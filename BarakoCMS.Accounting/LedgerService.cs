@@ -1,3 +1,4 @@
+using barakoCMS.Core.Interfaces;
 using barakoCMS.Models;
 using BarakoCMS.Accounting.Domain;
 using Marten;
@@ -41,9 +42,14 @@ public record PostResult(JournalEntry? Entry, IReadOnlyList<string> Errors)
 public class LedgerService
 {
     private readonly IDocumentSession _session;
+    private readonly IContentWriter _contentWriter;
     private readonly JournalEntryHook _hook = new();
 
-    public LedgerService(IDocumentSession session) => _session = session;
+    public LedgerService(IDocumentSession session, IContentWriter contentWriter)
+    {
+        _session = session;
+        _contentWriter = contentWriter;
+    }
 
     public async Task<PostResult> PostAsync(PostEntryCommand cmd, Guid userId, CancellationToken ct)
     {
@@ -104,10 +110,7 @@ public class LedgerService
             contentId, AccountingContentTypes.JournalEntry, data,
             barakoCMS.Models.ContentStatus.Published, userId, searchText);
 
-        _session.Events.StartStream<barakoCMS.Models.Content>(contentId, created);
-        var content = new barakoCMS.Models.Content();
-        content.Apply(created);
-        _session.Store(content);
+        _contentWriter.Create(created);
 
         // The entry and the sequence increment the hook made commit in one transaction.
         await _session.SaveChangesAsync(ct);
