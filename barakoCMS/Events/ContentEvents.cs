@@ -35,7 +35,21 @@ public record ContentCreated(
     {
     }
 
-    [Obsolete("Use the six-value Deconstruct overload. Removal planned for the next major version.")]
+    // A positional record's Deconstruct follows its primary constructor, so widening the record
+    // breaks deconstruction at the old arity as surely as it breaks construction. #161 landed the
+    // constructor half of this and left the Deconstruct half, so both are kept in step here.
+    [Obsolete("Use the seven-value Deconstruct overload. Removal planned for barakoCMS 5.0.")]
+    public void Deconstruct(
+        out Guid id,
+        out string contentType,
+        out Dictionary<string, object> data,
+        out Models.ContentStatus status,
+        out Guid createdBy,
+        out string? searchText) =>
+        (id, contentType, data, status, createdBy, searchText) =
+            (Id, ContentType, Data, Status, CreatedBy, SearchText);
+
+    [Obsolete("Use the seven-value Deconstruct overload. Removal planned for barakoCMS 5.0.")]
     public void Deconstruct(
         out Guid id,
         out string contentType,

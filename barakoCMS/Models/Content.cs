@@ -24,10 +24,11 @@ public class Content
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    // Scheduling. Forward-looking intent held on the read model (not the event stream): the scheduler
-    // promotes a Draft to Published at/after ScheduledPublishAt, and Archives a Published item at/after
-    // ScheduledUnpublishAt. Each transition emits a real ContentStatusChanged event, so workflows fire
-    // and history stays correct; the consumed field is then cleared. Both are UTC.
+    // Scheduling. The scheduler promotes a Draft to Published at/after ScheduledPublishAt, and
+    // Archives a Published item at/after ScheduledUnpublishAt. Setting either emits ContentScheduled
+    // and each transition emits a real ContentStatusChanged, so workflows fire, history stays correct
+    // and a rebuild recovers both dates. The consumed field is cleared through an event too, which is
+    // why clearing is visible in the stream despite happening with no user behind it. Both are UTC.
     public DateTime? ScheduledPublishAt { get; set; }
     public DateTime? ScheduledUnpublishAt { get; set; }
 
@@ -89,4 +90,18 @@ public class Content
         LastModifiedBy = @event.UpdatedBy;
     }
 
+    // The single-argument forms these replace. Kept because Content ships in the BarakoCMS package
+    // and external code compiles against it. Each delegates with UtcNow, which is what the old body
+    // read, so a caller that has not moved across behaves exactly as before. A rebuild must not use
+    // these: replaying an old event with the current clock is the failure the two-argument forms
+    // exist to prevent.
+
+    [Obsolete("Use Apply(ContentCreated, DateTime). Removal planned for barakoCMS 5.0.")]
+    public void Apply(barakoCMS.Events.ContentCreated @event) => Apply(@event, DateTime.UtcNow);
+
+    [Obsolete("Use Apply(ContentUpdated, DateTime). Removal planned for barakoCMS 5.0.")]
+    public void Apply(barakoCMS.Events.ContentUpdated @event) => Apply(@event, DateTime.UtcNow);
+
+    [Obsolete("Use Apply(ContentStatusChanged, DateTime). Removal planned for barakoCMS 5.0.")]
+    public void Apply(barakoCMS.Events.ContentStatusChanged @event) => Apply(@event, DateTime.UtcNow);
 }
