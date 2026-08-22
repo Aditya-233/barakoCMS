@@ -10,10 +10,9 @@ using Xunit;
 namespace BarakoCMS.Tests;
 
 /// <summary>
-/// The claim behind #222 and #223 is that the event stream carries the whole document. Nothing else
-/// in the suite tests that, because every other test reads a document the writer has just written,
-/// so the document and the assertion come from the same code path and agree with each other whatever
-/// the events contain.
+/// The event stream is supposed to carry the whole document. Nothing else in the suite tests that,
+/// because every other test reads a document the writer has just written, so the document and the
+/// assertion come from the same code path and agree with each other whatever the events contain.
 ///
 /// This deletes the document and rebuilds it from the stream alone.
 /// </summary>

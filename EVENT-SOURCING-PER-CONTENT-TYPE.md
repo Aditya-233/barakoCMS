@@ -106,7 +106,7 @@ the copies drifted until two defects lived in all of them and a third lived in o
 "is this type event sourced" would drift the same way, and the drift would be invisible because both
 branches produce a valid-looking document.
 
-```
+```text
 Features/Content/*/Endpoint.cs   ─┐
 Workflows/Actions/*.cs           ─┼─→  IContentWriter  ─┬─→  document mode: Store(content), append event
                                   ┘                     └─→  stream mode:  Append(event) → inline projection
