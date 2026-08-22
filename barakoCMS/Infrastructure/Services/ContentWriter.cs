@@ -38,6 +38,15 @@ public sealed class ContentWriter : IContentWriter
     /// <inheritdoc />
     public async Task AppendOptimisticAsync(Content content, IReadOnlyList<object> events, CancellationToken cancellationToken)
     {
+        // Checked before anything is staged. AppendOptimistic queues the events onto the session, so
+        // rejecting the third of five afterwards leaves the first two staged: a caller that catches
+        // and commits anyway writes events with no matching change to the document, which is the
+        // exact divergence this class exists to prevent.
+        foreach (var @event in events)
+        {
+            AssertHasProjection(@event);
+        }
+
         await _session.Events.AppendOptimistic(content.Id, cancellationToken, events.ToArray());
 
         foreach (var @event in events)
@@ -46,6 +55,19 @@ public sealed class ContentWriter : IContentWriter
         }
 
         _session.Store(content);
+    }
+
+    private static void AssertHasProjection(object @event)
+    {
+        if (@event is ContentCreated or ContentUpdated or ContentStatusChanged
+            or ContentScheduled or ContentSensitivityChanged)
+        {
+            return;
+        }
+
+        throw new InvalidOperationException(
+            $"{@event.GetType().Name} has no Content.Apply overload, so appending it would leave the "
+            + "document unchanged. Add the overload and a case in ApplyToDocument before emitting it.");
     }
 
     /// <summary>

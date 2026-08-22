@@ -1,6 +1,13 @@
 # Opt-in event sourcing, per content type
 
-A design plan. Nothing here is implemented.
+A design plan. **Steps 1 and 2 below are implemented**; steps 3 to 5 are not, and the open decisions
+at the end are settled in `DECISIONS.md` rather than here.
+
+What has landed: every content event now carries the fields a rebuild needs, including `Sensitivity`,
+`ContentScheduled` and `ContentSensitivityChanged`; and every write path goes through
+`IContentWriter`. The prerequisite gap described under "the events are not complete enough yet" is
+therefore closed, and the section is kept because the reasoning still explains why the shape is what
+it is.
 
 ## What is being proposed
 

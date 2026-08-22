@@ -45,6 +45,23 @@ public class LedgerService
     private readonly IContentWriter _contentWriter;
     private readonly JournalEntryHook _hook = new();
 
+    /// <summary>
+    /// The single-argument form this replaces.
+    /// </summary>
+    /// <remarks>
+    /// Kept because BarakoCMS.Accounting ships as a package and this is a plain service an external
+    /// caller can construct. It builds the same writer the container would, from the same session,
+    /// so behaviour is identical.
+    ///
+    /// The endpoints changed alongside it are not given this treatment on purpose: FastEndpoints
+    /// constructs those, and nothing outside the process news one up.
+    /// </remarks>
+    [Obsolete("Use the constructor taking IContentWriter. Removal planned for barakoCMS 5.0.")]
+    public LedgerService(IDocumentSession session)
+        : this(session, new barakoCMS.Infrastructure.Services.ContentWriter(session))
+    {
+    }
+
     public LedgerService(IDocumentSession session, IContentWriter contentWriter)
     {
         _session = session;

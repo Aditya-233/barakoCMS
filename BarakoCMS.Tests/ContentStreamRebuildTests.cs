@@ -44,10 +44,13 @@ public class ContentStreamRebuildTests
                 id,
                 "article",
                 new Dictionary<string, object> { ["Title"] = "first" },
-                ContentStatus.Draft,
+                // Deliberately not Draft/Public. Those are the initialisers on a fresh Content, so
+                // arranging them here would let a dropped assignment in Apply(ContentCreated) pass
+                // unnoticed: the assertion would be satisfied by the default, not by the event.
+                ContentStatus.Archived,
                 author,
                 "first",
-                SensitivityLevel.Public));
+                SensitivityLevel.Hidden));
 
             writer.Append(content, new ContentUpdated(
                 id, new Dictionary<string, object> { ["Title"] = "second" }, editor, "second"));
@@ -83,6 +86,7 @@ public class ContentStreamRebuildTests
         }
 
         Content rebuilt;
+        var replayed = new List<object>();
         using (var scope = _fixture.Services.CreateScope())
         {
             var session = scope.ServiceProvider.GetRequiredService<IQuerySession>();
@@ -92,6 +96,7 @@ public class ContentStreamRebuildTests
             rebuilt = new Content();
             foreach (var e in stream)
             {
+                replayed.Add(e.Data);
                 var at = e.Timestamp.UtcDateTime;
                 switch (e.Data)
                 {
@@ -107,6 +112,23 @@ public class ContentStreamRebuildTests
                 }
             }
         }
+
+        // The final state alone does not test Apply(ContentCreated): Sensitivity and Status are both
+        // overwritten by later events. Replaying only the first event pins those, and it only works
+        // because the arranged values are not the defaults of a fresh Content. Asserting the default
+        // would be satisfied by the initialiser whether or not the event carried anything.
+        var afterCreate = new Content();
+        var first = replayed[0];
+        first.Should().BeOfType<ContentCreated>("the stream must open with creation");
+        afterCreate.Apply((ContentCreated)first, DateTime.UtcNow);
+
+        afterCreate.Id.Should().Be(id);
+        afterCreate.ContentType.Should().Be("article");
+        afterCreate.Status.Should().Be(ContentStatus.Archived);
+        afterCreate.Sensitivity.Should().Be(SensitivityLevel.Hidden);
+        afterCreate.SearchText.Should().Be("first");
+        afterCreate.LastModifiedBy.Should().Be(author);
+        afterCreate.Data.Should().ContainKey("Title").WhoseValue.ToString().Should().Be("first");
 
         // Asserted against the values written above, NOT against `stored`.
         //

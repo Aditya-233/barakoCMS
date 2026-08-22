@@ -36,8 +36,8 @@ public record ContentCreated(
     }
 
     // A positional record's Deconstruct follows its primary constructor, so widening the record
-    // breaks deconstruction at the old arity as surely as it breaks construction. #161 landed the
-    // constructor half of this and left the Deconstruct half, so both are kept in step here.
+    // breaks deconstruction at the old arity as surely as it breaks construction. Both halves are
+    // kept in step: an obsolete constructor without a matching Deconstruct only fixes half the break.
     [Obsolete("Use the seven-value Deconstruct overload. Removal planned for barakoCMS 5.0.")]
     public void Deconstruct(
         out Guid id,
