@@ -5,6 +5,30 @@ Releases ship every Saturday. This file says what each one is for and why that o
 The positioning it serves: **free at any scale, and audit-grade**. Not "cheaper than", not "has more
 features than". Free with no seat cap, no revenue cap, no metered AI, and every module included.
 
+## The thesis
+
+The commercial CMS price list was built on an assumption that is no longer safe: that setting a
+system up and keeping it running is expensive human labour, and that a licence is the cheaper way to
+buy that labour.
+
+Umbraco's €2,800/yr Deploy licence and €250/domain Forms are priced against the cost of building
+those things yourself. Directus's $5M revenue cap is a bet that a company past that size would rather
+pay than self-support. Neither is a feature moat. Both are bets on the price of setup labour.
+
+If a competent team with coding agents can stand this up, extend it and support it themselves, the
+licence is the only line left on the invoice, and ours is zero. **That is the levelling: a two-person
+agency and an enterprise get the same system, and neither pays for the privilege of scaling.**
+
+Everything below follows from that. It is why the CLI, the templates, the delivery documentation and
+the MCP server outrank feature parity: they are not conveniences, they are the mechanism by which the
+free claim becomes actionable rather than theoretical.
+
+**The obligation it creates.** A thesis about scaling has to survive contact with scaling. Right now
+it does not: the async daemon runs `DaemonMode.Solo`, which Marten documents as assuming "there is
+never more than one running system node". Every node runs `WorkflowProjection`, so two instances send
+every workflow email twice. That is #235, and it is in 3.23.0 because a claim about scale cannot ship
+ahead of the ability to scale.
+
 ## Why that claim and not a better-sounding one
 
 Checked against the field in August 2026, this is the only claim that is a matter of published fact
