@@ -8,17 +8,14 @@ We love your input! We want to make contributing to BarakoCMS as easy and transp
 - Proposing new features
 - Becoming a maintainer
 
-## Contributor License Agreement (CLA)
+## Contributor terms
 
-**Before your first contribution**, you'll need to sign our [Contributor License Agreement (CLA)](CLA.md).
+There is nothing to sign. Opening a pull request means you agree to the
+[contributor terms](CLA.md), which are short and in plain English.
 
-When you submit your first pull request, [CLA Assistant](https://cla-assistant.io) will automatically ask you to sign. This takes 30 seconds and ensures:
-- ✅ You retain copyright of your contribution
-- ✅ The project can evolve (including potential commercial offerings)
-- ✅ No future payment disputes
-- ✅ Protection for both you and the project
-
-[Read the full CLA here](CLA.md)
+The gist: you keep your copyright, we get permission to ship your work, and that permission is
+limited to open source licences. barakoCMS cannot be taken proprietary, because nobody has been
+asked for the rights that would allow it.
 
 ## "Vibe Coding" & AI Agents
 
