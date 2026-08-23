@@ -1,7 +1,16 @@
 # Contributor terms
 
 barakoCMS is [MPL-2.0](LICENSE). Your contribution ships under it, you keep your copyright, and
-barakoCMS is never released as closed source.
+barakoCMS is not released as closed source.
+
+Worth splitting that last part honestly, because it is a structural guarantee for some of the code
+and a commitment for the rest:
+
+- **Contributions accepted under these terms cannot be released closed.** The permission granted
+  below does not extend that far, so it is not a matter of anyone's intentions.
+- **Contributions accepted before 23 August 2026** were made under terms that did grant a right to
+  relicense, including commercially. Those rights exist and will not be exercised. That is a
+  commitment rather than a structural limit, and it is stated plainly rather than papered over.
 
 That last point is about *our* releases. MPL-2.0 lets anyone, you included, use barakoCMS inside a
 commercial or closed-source product. That is the licence working as intended and nothing here
