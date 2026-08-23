@@ -195,5 +195,6 @@ If a break is genuinely unavoidable, say so explicitly in the PR description.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the Mozilla Public
-License 2.0.
+barakoCMS is released under the [Mozilla Public License 2.0](LICENSE), and your contribution ships
+under whatever licence the release carries. The [contributor terms](CLA.md) bound that to
+OSI-approved licences, so a release containing your work is always open source.

@@ -1,9 +1,18 @@
 # Contributor terms
 
-Short version: you keep your copyright, we can ship your work in barakoCMS, and it can never
-become closed source.
+Short version: you keep your copyright, we can ship your work in barakoCMS, and barakoCMS itself
+can never stop being open source.
+
+To be precise about that last point, because two different things get confused: **barakoCMS will
+always be released under an open source licence.** MPL-2.0 separately allows *anyone*, including
+you, to use barakoCMS inside a commercial or closed-source product. That is the licence doing its
+job and this document does not change it.
 
 There is nothing to sign. Opening a pull request means you agree to what is below.
+
+**These terms apply from 23 August 2026 and are not retroactive.** Contributions made before that
+date remain under the terms published when they were made. If these terms change, the change binds
+contributions made after it, not before.
 
 ## What you are agreeing to
 
@@ -11,23 +20,32 @@ There is nothing to sign. Opening a pull request means you agree to what is belo
 A perpetual, worldwide, royalty-free licence to use, modify, distribute and sublicense what you
 contribute, so it can ship as part of barakoCMS and any project that includes it.
 
-**2. That permission is limited to open source.**
-Your contribution may only ever be distributed under a licence approved by the
-[Open Source Initiative](https://opensource.org/licenses). barakoCMS is MPL-2.0 today. If it ever
-moves, it moves to another OSI-approved licence and no further.
+**2. That permission is limited to open source releases.**
+Releases of barakoCMS containing your contribution may only ever be made under a licence approved
+by the [Open Source Initiative](https://opensource.org/licenses). barakoCMS is MPL-2.0 today, and
+was Apache-2.0 up to 3.1.1, so the project has moved once already; any future move is to another
+OSI-approved licence and no further.
 
-We cannot take your work proprietary. Not "will not": the permission you are giving does not
-extend that far, so there is nothing to change our minds about later.
+We cannot make a closed-source release of your work. Not "will not": the permission you are giving
+does not extend that far, so there is nothing to change our minds about later.
+
+This is about how *we* release barakoCMS. It does not restrict what anyone else may do with a
+release, which is governed by MPL-2.0 and permits use inside closed-source products.
 
 **3. You keep your copyright.**
 Nothing here transfers ownership. It is a licence, not an assignment. Your contribution stays
 yours and you can use it anywhere else you like, including in commercial work of your own.
 
 **4. Patents.**
-If you hold a patent that your contribution necessarily infringes, you grant the same royalty-free
-licence for it. This is what stops a contribution becoming a legal trap for everyone downstream.
-MPL-2.0 section 2.1(b) already asks this of anyone distributing the code; saying it here makes it
-explicit rather than implied.
+The operative patent grant is [MPL-2.0 section 2.1(b)](LICENSE), under which each contributor
+licenses the Patent Claims it defines. Contributing under these terms means that grant applies to
+your contribution.
+
+Restated here rather than redefined, deliberately: MPL-2.0 already defines "Patent Claims" and the
+scope of the grant, and a second definition written alongside it would be a second definition to
+keep in step. What this section adds is that you are aware of it, not a different promise.
+
+The point of it is that a contribution cannot become a legal trap for everyone downstream.
 
 **5. You have the right to contribute it.**
 Either you wrote it, or you have permission from whoever did. If your employer owns your work,
