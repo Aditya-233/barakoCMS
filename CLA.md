@@ -1,18 +1,16 @@
 # Contributor terms
 
-Short version: you keep your copyright, we can ship your work in barakoCMS, and barakoCMS itself
-can never stop being open source.
+barakoCMS is [MPL-2.0](LICENSE). Your contribution ships under it, you keep your copyright, and
+barakoCMS is never released as closed source.
 
-To be precise about that last point, because two different things get confused: **barakoCMS will
-always be released under an open source licence.** MPL-2.0 separately allows *anyone*, including
-you, to use barakoCMS inside a commercial or closed-source product. That is the licence doing its
-job and this document does not change it.
+That last point is about *our* releases. MPL-2.0 lets anyone, you included, use barakoCMS inside a
+commercial or closed-source product. That is the licence working as intended and nothing here
+changes it.
 
 There is nothing to sign. Opening a pull request means you agree to what is below.
 
-**These terms apply from 23 August 2026 and are not retroactive.** Contributions made before that
-date remain under the terms published when they were made. If these terms change, the change binds
-contributions made after it, not before.
+These terms apply from 23 August 2026 and are not retroactive: contributions made earlier stay
+under the terms published at the time.
 
 ## What you are agreeing to
 
@@ -20,32 +18,26 @@ contributions made after it, not before.
 A perpetual, worldwide, royalty-free licence to use, modify, distribute and sublicense what you
 contribute, so it can ship as part of barakoCMS and any project that includes it.
 
-**2. That permission is limited to open source releases.**
-Releases of barakoCMS containing your contribution may only ever be made under a licence approved
-by the [Open Source Initiative](https://opensource.org/licenses). barakoCMS is MPL-2.0 today, and
-was Apache-2.0 up to 3.1.1, so the project has moved once already; any future move is to another
-OSI-approved licence and no further.
+**2. MPL-2.0 or MIT. Nothing else.**
+Releases containing your contribution are made under MPL-2.0, or under MIT if the project ever
+moves. Those are the only two licences BaryoDev uses, and naming them is more useful than saying
+"an open source licence": that phrase covers AGPL, which many companies will not accept, so you
+would still have to ask what could happen. Now you do not.
 
-We cannot make a closed-source release of your work. Not "will not": the permission you are giving
-does not extend that far, so there is nothing to change our minds about later.
+It was Apache-2.0 up to 3.1.1, so a move has happened once and is a real possibility rather than a
+hypothetical.
 
-This is about how *we* release barakoCMS. It does not restrict what anyone else may do with a
-release, which is governed by MPL-2.0 and permits use inside closed-source products.
+We cannot make a closed-source release of your work. Not "will not": the permission does not
+extend that far, so there is nothing to change our minds about later.
 
 **3. You keep your copyright.**
 Nothing here transfers ownership. It is a licence, not an assignment. Your contribution stays
 yours and you can use it anywhere else you like, including in commercial work of your own.
 
 **4. Patents.**
-The operative patent grant is [MPL-2.0 section 2.1(b)](LICENSE), under which each contributor
-licenses the Patent Claims it defines. Contributing under these terms means that grant applies to
-your contribution.
-
-Restated here rather than redefined, deliberately: MPL-2.0 already defines "Patent Claims" and the
-scope of the grant, and a second definition written alongside it would be a second definition to
-keep in step. What this section adds is that you are aware of it, not a different promise.
-
-The point of it is that a contribution cannot become a legal trap for everyone downstream.
+MPL-2.0 section 2.1(b) is the patent grant and it applies to your contribution. Pointed at rather
+than restated, because a second definition alongside the licence's is a second one to keep in step.
+Its purpose is that a contribution cannot become a legal trap for everyone downstream.
 
 **5. You have the right to contribute it.**
 Either you wrote it, or you have permission from whoever did. If your employer owns your work,
