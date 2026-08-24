@@ -425,7 +425,6 @@ that stops a wrong issue being built, counts as much here as a pull request.
 Follows the [all-contributors](https://allcontributors.org) specification. To add someone, comment
 `@all-contributors please add @username for bug, code` on any issue or pull request.
 
-
 ## License
 
 [MPL-2.0](LICENSE) for the core and every module, so there is one licence across the suite.
