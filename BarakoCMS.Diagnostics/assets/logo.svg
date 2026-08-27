@@ -1,0 +1,14 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.Diagnostics">
+  <title>BarakoCMS.Diagnostics</title>
+  <defs>
+    <linearGradient id="diagnostics-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#455A64"/>
+      <stop offset="1" stop-color="#263238"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#diagnostics-bg)"/>
+
+  <!-- pulse/heartbeat -->
+  <path d="M34 64 L48 64 L56 44 L72 94 L80 64 L94 64" stroke="#F2B441" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+</svg>

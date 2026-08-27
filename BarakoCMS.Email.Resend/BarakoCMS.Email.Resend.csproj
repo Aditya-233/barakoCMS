@@ -23,4 +23,12 @@
     <InternalsVisibleTo Include="BarakoCMS.Tests" />
   </ItemGroup>
 
+
+  <PropertyGroup>
+    <PackageIcon>logo.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="assets\logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>

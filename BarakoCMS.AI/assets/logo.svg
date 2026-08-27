@@ -1,0 +1,23 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.AI">
+  <title>BarakoCMS.AI</title>
+  <defs>
+    <linearGradient id="ai-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A154B"/>
+      <stop offset="1" stop-color="#29072B"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#ai-bg)"/>
+
+  <!-- AI chip -->
+  <rect x="44" y="44" width="40" height="40" rx="4" stroke="#F2B441" stroke-width="4" fill="none"/>
+  <circle cx="64" cy="64" r="8" fill="#F2B441"/>
+  <line x1="34" y1="54" x2="44" y2="54" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="34" y1="74" x2="44" y2="74" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="84" y1="54" x2="94" y2="54" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="84" y1="74" x2="94" y2="74" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="54" y1="34" x2="54" y2="44" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="74" y1="34" x2="74" y2="44" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="54" y1="84" x2="54" y2="94" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+  <line x1="74" y1="84" x2="74" y2="94" stroke="#F2B441" stroke-width="4" stroke-linecap="round"/>
+
+</svg>

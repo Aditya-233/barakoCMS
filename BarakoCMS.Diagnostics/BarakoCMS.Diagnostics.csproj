@@ -27,4 +27,12 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
   </ItemGroup>
 
+
+  <PropertyGroup>
+    <PackageIcon>logo.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="assets\logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>

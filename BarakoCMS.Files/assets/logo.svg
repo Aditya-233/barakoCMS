@@ -1,0 +1,14 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.Files">
+  <title>BarakoCMS.Files</title>
+  <defs>
+    <linearGradient id="files-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#607D8B"/>
+      <stop offset="1" stop-color="#37474F"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#files-bg)"/>
+
+  <!-- folder -->
+  <path d="M30 44 L50 44 L60 54 L98 54 V88 H30 Z" stroke="#F2B441" stroke-width="4" stroke-linejoin="round" fill="none"/>
+
+</svg>

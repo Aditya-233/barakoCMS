@@ -1,0 +1,16 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.Files.S3">
+  <title>BarakoCMS.Files.S3</title>
+  <defs>
+    <linearGradient id="files-s3-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0277BD"/>
+      <stop offset="1" stop-color="#01579B"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#files-s3-bg)"/>
+
+  <!-- cloud / bucket -->
+  <path d="M44 74 A16 16 0 0 1 44 42 A24 24 0 0 1 84 42 A16 16 0 0 1 84 74 Z" stroke="#F2B441" stroke-width="4" stroke-linejoin="round" fill="none"/>
+  <!-- S3 literal or bucket detail -->
+  <path d="M54 74 L54 84 L74 84 L74 74" stroke="#F2B441" stroke-width="4" stroke-linejoin="round" fill="none"/>
+
+</svg>

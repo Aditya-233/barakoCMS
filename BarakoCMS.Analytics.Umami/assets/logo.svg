@@ -1,0 +1,16 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.Analytics.Umami">
+  <title>BarakoCMS.Analytics.Umami</title>
+  <defs>
+    <linearGradient id="analytics-umami-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E91E63"/>
+      <stop offset="1" stop-color="#880E4F"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#analytics-umami-bg)"/>
+
+  <!-- bar chart -->
+  <rect x="34" y="64" width="12" height="30" stroke="#F2B441" stroke-width="4" fill="none" rx="2"/>
+  <rect x="58" y="44" width="12" height="50" stroke="#F2B441" stroke-width="4" fill="none" rx="2"/>
+  <rect x="82" y="34" width="12" height="60" stroke="#F2B441" stroke-width="4" fill="none" rx="2"/>
+
+</svg>
