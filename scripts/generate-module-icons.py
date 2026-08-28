@@ -91,10 +91,13 @@ ICONS["BarakoCMS.Pwa"] = ("BarakoCMS.Pwa", "#009688", f'''  <rect x="42" y="22" 
   <circle cx="64" cy="96" r="4" fill="#009688"/>
   <path d="M64 44 V70 M53 60 L64 71 L75 60" fill="none" stroke="{GOLD}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>''')
 
-base = os.path.expanduser("~/repos/barakoCMS")
+# Repo root is the parent of the scripts/ directory this file lives in, so the
+# generator works from any checkout location.
+base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for mod, (label, bg, glyph) in ICONS.items():
     path = os.path.join(base, mod, "assets", "icon.svg")
     if not os.path.isdir(os.path.dirname(path)):
-        print("SKIP missing dir:", path); continue
+        print("SKIP missing dir:", path)
+        continue
     open(path, "w").write(wrap(label, bg, glyph))
     print("wrote", path)
