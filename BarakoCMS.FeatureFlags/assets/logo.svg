@@ -1,17 +1,8 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.FeatureFlags">
   <title>BarakoCMS.FeatureFlags</title>
-  <defs>
-    <linearGradient id="featureflags-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7B1FA2"/>
-      <stop offset="1" stop-color="#4A148C"/>
-    </linearGradient>
-  </defs>
-  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#featureflags-bg)"/>
-
-  <!-- toggle switches -->
-  <rect x="34" y="40" width="60" height="20" rx="10" stroke="#F2B441" stroke-width="4" fill="none"/>
-  <circle cx="44" cy="50" r="6" fill="#F2B441"/>
-  <rect x="34" y="68" width="60" height="20" rx="10" stroke="#F2B441" stroke-width="4" fill="none"/>
-  <circle cx="84" cy="78" r="6" fill="#F2B441"/>
-
+  <rect x="2" y="2" width="124" height="124" rx="28" fill="#7B1FA2"/>
+  <rect x="30" y="38" width="68" height="26" rx="13" fill="#FFFFFF"/>
+  <circle cx="83" cy="51" r="9" fill="#FFC53D"/>
+  <rect x="30" y="72" width="68" height="26" rx="13" fill="#FFFFFF"/>
+  <circle cx="45" cy="85" r="9" fill="#7B1FA2"/>
 </svg>

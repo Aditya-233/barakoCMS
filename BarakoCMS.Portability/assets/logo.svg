@@ -1,16 +1,7 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BarakoCMS.Portability">
   <title>BarakoCMS.Portability</title>
-  <defs>
-    <linearGradient id="portability-bg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#5D4037"/>
-      <stop offset="1" stop-color="#3E2723"/>
-    </linearGradient>
-  </defs>
-  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#portability-bg)"/>
-
-  <!-- box with up/down arrows -->
-  <rect x="34" y="44" width="60" height="40" rx="4" stroke="#F2B441" stroke-width="4" fill="none"/>
-  <path d="M64 24 L64 44 M54 34 L64 24 L74 34" stroke="#F2B441" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M64 84 L64 104 M54 94 L64 104 L74 94" stroke="#F2B441" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-
+  <rect x="2" y="2" width="124" height="124" rx="28" fill="#5D4037"/>
+  <rect x="40" y="46" width="48" height="44" rx="10" fill="#FFFFFF"/>
+  <path d="M54 68 V54 M48 60 L54 53 L60 60" fill="none" stroke="#5D4037" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 68 V82 M68 76 L74 83 L80 76" fill="none" stroke="#FFC53D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
