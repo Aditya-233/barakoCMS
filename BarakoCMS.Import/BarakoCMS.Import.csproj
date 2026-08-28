@@ -5,7 +5,7 @@
 
     <IsPackable>true</IsPackable>
     <PackageId>BarakoCMS.Import</PackageId>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <Description>Optional bulk-import module for barakoCMS: analyze .xlsx/CSV uploads and bulk-create content. Zero-dependency parsing via Talaan.</Description>
   </PropertyGroup>
 
@@ -19,14 +19,5 @@
     <ProjectReference Include="..\barakoCMS\barakoCMS.csproj" />
     <!-- Talaan is consumed as a published NuGet package so this module builds standalone (CI, NuGet). -->
     <PackageReference Include="Talaan" />
-  </ItemGroup>
-
-
-  <PropertyGroup>
-    <PackageIcon>logo.png</PackageIcon>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="assets\logo.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

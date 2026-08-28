@@ -93,7 +93,7 @@ ICONS["BarakoCMS.Pwa"] = ("BarakoCMS.Pwa", "#009688", f'''  <rect x="42" y="22" 
 
 base = os.path.expanduser("~/repos/barakoCMS")
 for mod, (label, bg, glyph) in ICONS.items():
-    path = os.path.join(base, mod, "assets", "logo.svg")
+    path = os.path.join(base, mod, "assets", "icon.svg")
     if not os.path.isdir(os.path.dirname(path)):
         print("SKIP missing dir:", path); continue
     open(path, "w").write(wrap(label, bg, glyph))

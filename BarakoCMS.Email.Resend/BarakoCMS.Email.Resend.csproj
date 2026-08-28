@@ -5,7 +5,7 @@
 
     <IsPackable>true</IsPackable>
     <PackageId>BarakoCMS.Email.Resend</PackageId>
-    <Version>0.5.0</Version>
+    <Version>0.5.1</Version>
     <Description>Resend email-provider module for barakoCMS: implements IEmailService via the Resend HTTP API, plus a delivery webhook that records bounces/complaints as EmailEvent documents.</Description>
   </PropertyGroup>
 
@@ -21,14 +21,5 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="BarakoCMS.Tests" />
-  </ItemGroup>
-
-
-  <PropertyGroup>
-    <PackageIcon>logo.png</PackageIcon>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="assets\logo.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
