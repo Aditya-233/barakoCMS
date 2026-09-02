@@ -751,7 +751,13 @@ public static class ServiceCollectionExtensions
         ["verifyfull"] = "VerifyFull"
     };
 
-    internal static string ResolveConnectionString(IConfiguration configuration)
+    /// <param name="environment">
+    /// The hosting environment, defaulting to ASPNETCORE_ENVIRONMENT. A parameter so a test can say
+    /// which branch it means: the variable is process-global, so a test that set it would decide the
+    /// answer for whichever host started next, and a test that merely read it would pass or fail on
+    /// whatever another test had already set.
+    /// </param>
+    internal static string ResolveConnectionString(IConfiguration configuration, string? environment = null)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         var dbUrl = configuration["DATABASE_URL"];
@@ -821,8 +827,8 @@ public static class ServiceCollectionExtensions
             // localhost, which surfaces long after startup as an unrelated failure. Name the missing
             // setting instead. It stays a dummy in Development, where design-time tooling and the
             // codegen pass need Marten to build a store without a database behind it.
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            if (!string.Equals(environment, "Development", StringComparison.OrdinalIgnoreCase))
+            var resolvedEnvironment = environment ?? Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            if (!string.Equals(resolvedEnvironment, "Development", StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidOperationException(
                     "No database connection string. Set ConnectionStrings:DefaultConnection or the DATABASE_URL environment variable.");

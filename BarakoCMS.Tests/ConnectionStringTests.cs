@@ -180,21 +180,42 @@ public class ConnectionStringTests
     /// a database" into a connection refused against localhost, surfacing long after startup as
     /// something unrelated.
     ///
-    /// Only the production half is asserted here. The Development half returns the dummy so
-    /// design-time tooling can build a store with no database behind it, and every integration test
-    /// in the suite exercises it, because the fixture forces Development. Setting
-    /// ASPNETCORE_ENVIRONMENT from a test to reach it would be process-global and would land on
-    /// whichever host happened to start next.
+    /// The environment is passed in rather than read from ASPNETCORE_ENVIRONMENT. That variable is
+    /// process-global: the first version of this test read it, passed locally, and failed in CI,
+    /// because another fixture in the same run had already set it to Development and the branch
+    /// under test was never taken. A test whose answer depends on which other test ran first is not
+    /// a test. Both branches are named explicitly instead.
     /// </remarks>
-    [Fact]
-    public void No_connection_string_anywhere_is_refused_by_name()
+    [Theory]
+    [InlineData("Production")]
+    [InlineData("Staging")]
+    [InlineData(null)]
+    public void No_connection_string_outside_development_is_refused_by_name(string? environment)
     {
         var config = CreateConfig();
 
-        var act = () => barakoCMS.Extensions.ServiceCollectionExtensions.ResolveConnectionString(config);
+        var act = () => barakoCMS.Extensions.ServiceCollectionExtensions.ResolveConnectionString(config, environment);
 
         act.Should().Throw<InvalidOperationException>()
             .WithMessage("*ConnectionStrings:DefaultConnection*")
             .WithMessage("*DATABASE_URL*");
+    }
+
+    /// <summary>
+    /// The pair. Development still gets the dummy, so design-time tooling and the codegen pass can
+    /// build a store with no database behind them.
+    /// </summary>
+    /// <remarks>
+    /// Without this, a ResolveConnectionString that threw unconditionally would satisfy the theory
+    /// above and break every developer running the app with no database configured.
+    /// </remarks>
+    [Fact]
+    public void Development_with_no_connection_string_still_gets_the_dummy()
+    {
+        var config = CreateConfig();
+
+        var conn = barakoCMS.Extensions.ServiceCollectionExtensions.ResolveConnectionString(config, "Development");
+
+        conn.Should().Contain("Database=dummy");
     }
 }
